@@ -16,7 +16,7 @@ echo \
 
 sudo apt-get update
 
-sudo apt-get install -y docker-ce docker-ce-cli containerd.io jq
+sudo apt-get install -y docker-ce docker-ce-cli containerd.io jq docker-compose
 
 VERSION=$(curl --silent https://api.github.com/repos/docker/compose/releases/latest | jq .name -r)
 
