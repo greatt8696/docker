@@ -16,12 +16,16 @@ echo \
 
 sudo apt-get update
 
-sudo apt-get install -y docker-ce docker-ce-cli containerd.io
+sudo apt-get install -y docker-ce docker-ce-cli containerd.io jq
 
-sudo curl -L "https://github.com/docker/compose/releases/download/v2.5.0/docker-compose-$(uname -s)-$(uname -m)" -o /usr/local/bin/docker-compose
+VERSION=$(curl --silent https://api.github.com/repos/docker/compose/releases/latest | jq .name -r)
+
+DESTINATION=/usr/bin/docker-compose
+
+sudo curl -L https://github.com/docker/compose/releases/download/${VERSION}/docker-compose-$(uname -s)-$(uname -m) -o $DESTINATION
+
+sudo chmod 755 $DESTINATION​
 
 sudo chmod +x /usr/local/bin/docker-compose
-
-sudo apt-get isntall docker-compose
 
 sudo bash ./generateKeyfile.sh
