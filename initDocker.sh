@@ -11,4 +11,4 @@ echo \
 sudo apt-get update
 sudo apt-get install -y docker-ce docker-ce-cli containerd.io docker-compose 
 
-sudo bash ./enerateKeyfile.sh
+sudo bash ./generateKeyfile.sh
