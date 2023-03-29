@@ -16,6 +16,8 @@ services:
     volumes:
       - ./data/db/replica/mongo1:/data/db
       - ./etc/mongodb.key:/etc/mongodb.key 
+    entrypoint: 
+      
     command:
       - '--replSet'
       - 'myReplicaSet'
