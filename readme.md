@@ -37,7 +37,7 @@
        5. Apply & restart 클릭 (오른쪽 하단)
     
     8. docker-compose 몽고, redis 등 서버 배포
-       sudo docker-compose up -d
+       sudo docker-compose up -d --build
 
     9. mongodb 레플리카셋 등록
        ubuntu 에 
