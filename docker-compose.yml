@@ -1,6 +1,10 @@
 version: '3.8'
 
 services:
+
+  webserver:
+    build: .
+
   redis:
     container_name: redis
     image: redis:latest
