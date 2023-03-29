@@ -16,9 +16,6 @@ services:
       - ./data/db/replica/mongo1:/data/db
       - ./etc/mongodb.key:/etc/mongodb.key 
     command:
-      - /bin/sh
-      - -c
-      - |
       - 'mongod --replSet myReplicaSet --keyFile /etc/mongodb.key --bind_ip_all'
   mongo2:
     image: mongo:latest
@@ -35,9 +32,6 @@ services:
       - ./data/db/replica/mongo1:/data/db
       - ./etc/mongodb.key:/etc/mongodb.key 
     command:
-      - /bin/sh
-      - -c
-      - |
       - 'mongod --replSet myReplicaSet --keyFile /etc/mongodb.key --bind_ip_all'
   mongo3:
     image: mongo:latest
@@ -54,9 +48,6 @@ services:
       - ./data/db/replica/mongo1:/data/db
       - ./etc/mongodb.key:/etc/mongodb.key 
     command:
-      - /bin/sh
-      - -c
-      - |
       - 'mongod --replSet myReplicaSet --keyFile /etc/mongodb.key --bind_ip_all'
 networks:
   default:
