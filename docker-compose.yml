@@ -14,7 +14,7 @@ services:
       - 27017:27017
     volumes:
       - ./data/db/replica/mongo1:/data/db
-      - ./key/mongodb.key:./key/mongodb.key 
+      - ./key/mongodb.key:./etc/mongodb.key 
     command:
       - '--replSet'
       - 'myReplicaSet'
@@ -34,7 +34,7 @@ services:
       - 27018:27017
     volumes:
       - ./data/db/replica/mongo2:/data/db
-      - ./key/mongodb.key:./key/mongodb.key 
+      - ./key/mongodb.key:./etc/mongodb.key 
     command:
       - '--replSet'
       - 'myReplicaSet'
@@ -54,7 +54,7 @@ services:
       - 27019:27017
     volumes:
       - ./data/db/replica/mongo3:/data/db
-      - ./key/mongodb.key:./key/mongodb.key 
+      - ./key/mongodb.key:./etc/mongodb.key 
     command:
       - '--replSet'
       - 'myReplicaSet'
