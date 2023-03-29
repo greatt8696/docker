@@ -1,0 +1,11 @@
+{
+  "name": "docker",
+  "version": "1.0.0",
+  "description": "1. window 환경\r     1. docker desktop 설치\r        https://www.docker.com/products/docker-desktop/ 에서 설치",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC"
+}
