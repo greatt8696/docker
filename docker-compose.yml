@@ -15,7 +15,7 @@ services:
     volumes:
       - ./data/db/replica/mongo1:/data/db
       - ./etc/mongodb.key:/etc/mongodb.key 
-    entrypoint: "chmod 400 /etc/mongodb.key"
+    entrypoint: "sudo chmod 400 /etc/mongodb.key"
     # entrypoint: 
     #       - bash
     #       - -c
