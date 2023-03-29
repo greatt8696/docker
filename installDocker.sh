@@ -1,5 +1,7 @@
 #! /bin/bash
 
+bash /home/local/docker/generateKeyfile.sh
+
 cd ~
 
 sudo apt-get update
@@ -25,5 +27,3 @@ sudo curl -L "https://github.com/docker/compose/releases/download/v2.5.0/docker-
 sudo chmod +x /usr/local/bin/docker-compose
 
 cd ~/
-
-bash /home/local/docker/generateKeyfile.sh
