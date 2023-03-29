@@ -22,13 +22,14 @@ services:
     #       - -c
     #       - |
     #         chmod 400 /etc/mongodb.key 
-    command:
-      - "monogd"
-      - '--replSet'
-      - 'myReplicaSet'
-      - '--keyFile'
-      - '/etc/mongodb.key'
-      - '--bind_ip_all'
+    # command:
+    #   - "monogd"
+    #   - '--replSet'
+    #   - 'myReplicaSet'
+    #   - '--keyFile'
+    #   - '/etc/mongodb.key'
+    #   - '--bind_ip_all'
+    command: "/usr/bin/monogd --replSet myReplicaSet --keyFile /etc/mongodb.key --bind_ip_all"
   mongo2:
     image: mongo:latest
     hostname: mongo2
@@ -43,17 +44,8 @@ services:
     volumes:
       - ./data/db/replica/mongo1:/data/db
       - ./etc/mongodb.key:/etc/mongodb.key 
-    entrypoint: 
-          - bash
-          - -c
-          - |
-            chmod 400 /etc/mongodb.key 
-    command:
-      - '--replSet'
-      - 'myReplicaSet'
-      - '--keyFile'
-      - '/etc/mongodb.key'
-      - '--bind_ip_all'
+    entrypoint: "chmod 400 /etc/mongodb.key"
+    command: "/usr/bin/monogd --replSet myReplicaSet --keyFile /etc/mongodb.key --bind_ip_all"
   mongo3:
     image: mongo:latest
     hostname: mongo3
@@ -69,17 +61,8 @@ services:
       - ./data/db/replica/mongo1:/data/db
       - ./etc/mongodb.key:/etc/mongodb.key 
       
-    entrypoint: 
-          - bash
-          - -c
-          - |
-            chmod 400 /etc/mongodb.key 
-    command:
-      - '--replSet'
-      - 'myReplicaSet'
-      - '--keyFile'
-      - '/etc/mongodb.key'
-      - '--bind_ip_all'
+    entrypoint: "chmod 400 /etc/mongodb.key"
+    command: "/usr/bin/monogd --replSet myReplicaSet --keyFile /etc/mongodb.key --bind_ip_all"
 networks:
   default:
     name: mongoCluster
