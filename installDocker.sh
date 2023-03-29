@@ -24,4 +24,6 @@ sudo curl -L "https://github.com/docker/compose/releases/download/v2.5.0/docker-
 
 sudo chmod +x /usr/local/bin/docker-compose
 
-sudo bash ./generateKeyfile.sh
+cd ~/
+
+sudo bash /home/local/docker/generateKeyfile.sh
