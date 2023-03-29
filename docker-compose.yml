@@ -16,7 +16,6 @@ services:
     volumes:
       - ./data/db/replica/mongo1:/data/db
       - ./key/mongodb.key:/key/mongodb.key 
-    entrypoint: 
 
     command:
       - '--replSet'
