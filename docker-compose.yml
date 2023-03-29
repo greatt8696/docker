@@ -13,17 +13,16 @@ services:
       - ./redis/conf/redis.conf:/usr/local/conf/redis.conf
 
   
-  
+
   mongo1:
     image: mongo:latest
     hostname: mongo1
     container_name: mongo1
-    # restart: always
+    restart: always
     environment:
       MONGO_INITDB_ROOT_USERNAME: root
       MONGO_INITDB_ROOT_PASSWORD: root!
     ports:
-      # 로컬 27017 포트로 요청이 들어오면 컨테이너의 27017 포트로 리다이렉트되도록 설정
       - 27017:27017
     volumes:
       - ./mongodb/data/db/replica/mongo1:/data/db
@@ -38,7 +37,7 @@ services:
     image: mongo:latest
     hostname: mongo2
     container_name: mongo2
-    # restart: always
+    restart: always
     environment:
       MONGO_INITDB_ROOT_USERNAME: root
       MONGO_INITDB_ROOT_PASSWORD: root!
@@ -59,7 +58,7 @@ services:
     image: mongo:latest
     hostname: mongo3
     container_name: mongo3
-    # restart: always
+    restart: always
     environment:
       MONGO_INITDB_ROOT_USERNAME: root
       MONGO_INITDB_ROOT_PASSWORD: root!
