@@ -14,12 +14,12 @@ services:
       - 27017:27017
     volumes:
       - ./data/db/replica/mongo1:/data/db
-      - ./key/mongodb.key:./etc/mongodb.key 
+      - ./etc/mongodb.key:/etc/mongodb.key 
     command:
       - '--replSet'
       - 'myReplicaSet'
       - '--keyFile'
-      - '/key/mongodb.key'
+      - '/etc/mongodb.key'
       - '--bind_ip_all'
   mongo2:
     image: mongo:latest
@@ -33,13 +33,13 @@ services:
     ports:
       - 27018:27017
     volumes:
-      - ./data/db/replica/mongo2:/data/db
-      - ./key/mongodb.key:./etc/mongodb.key 
+      - ./data/db/replica/mongo1:/data/db
+      - ./etc/mongodb.key:/etc/mongodb.key 
     command:
       - '--replSet'
       - 'myReplicaSet'
       - '--keyFile'
-      - '/key/mongodb.key'
+      - '/etc/mongodb.key'
       - '--bind_ip_all'
   mongo3:
     image: mongo:latest
@@ -53,13 +53,13 @@ services:
     ports:
       - 27019:27017
     volumes:
-      - ./data/db/replica/mongo3:/data/db
-      - ./key/mongodb.key:./etc/mongodb.key 
+      - ./data/db/replica/mongo1:/data/db
+      - ./etc/mongodb.key:/etc/mongodb.key 
     command:
       - '--replSet'
       - 'myReplicaSet'
       - '--keyFile'
-      - '/key/mongodb.key'
+      - '/etc/mongodb.key'
       - '--bind_ip_all'
 networks:
   default:
