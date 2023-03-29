@@ -1,7 +1,19 @@
 version: '3.8'
 
 services:
+  redis:
+    container_name: redis
+    image: redis:latest
+    ports:
+      - 6379:6379
+    restart: always
+    command: redis-server /usr/local/conf/redis.conf
+    volumes:
+      - ./redis/data/:/data
+      - ./redis/conf/redis.conf:/usr/local/conf/redis.conf
 
+  
+  
   mongo1:
     image: mongo:latest
     hostname: mongo1
@@ -14,8 +26,8 @@ services:
       # 로컬 27017 포트로 요청이 들어오면 컨테이너의 27017 포트로 리다이렉트되도록 설정
       - 27017:27017
     volumes:
-      - ./data/db/replica/mongo1:/data/db
-      - ./etc/mongodb.key:/etc/mongodb.key 
+      - ./mongodb/data/db/replica/mongo1:/data/db
+      - ./mongodb/etc/mongodb.key:/etc/mongodb.key 
     command:
       - '--replSet'
       - 'myReplicaSet'
@@ -35,8 +47,8 @@ services:
     ports:
       - 27018:27017
     volumes:
-      - ./data/db/replica/mongo2:/data/db
-      - ./etc/mongodb.key:/etc/mongodb.key 
+      - ./mongodb/data/db/replica/mongo2:/data/db
+      - ./mongodb/etc/mongodb.key:/etc/mongodb.key 
     command:
       - '--replSet'
       - 'myReplicaSet'
@@ -56,8 +68,8 @@ services:
     ports:
       - 27019:27017
     volumes:
-      - ./data/db/replica/mongo3:/data/db
-      - ./etc/mongodb.key:/etc/mongodb.key 
+      - ./mongodb/data/db/replica/mongo3:/data/db
+      - ./mongodb/etc/mongodb.key:/etc/mongodb.key 
     command:
       - '--replSet'
       - 'myReplicaSet'

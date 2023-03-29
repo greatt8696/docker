@@ -1,8 +1,8 @@
 #! /bin/bash
 
-bash /home/local/docker/generateKeyfile.sh
+cd /home/local/docker
 
-cd ~
+bash /home/local/docker/mongodb/generateKeyfile.sh
 
 sudo apt-get update
 
