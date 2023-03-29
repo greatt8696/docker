@@ -4,7 +4,8 @@ services:
 
   webserver:
     container_name: webserver
-    build: .
+    build: 
+      context: webserver
 
   redis:
     container_name: redis
