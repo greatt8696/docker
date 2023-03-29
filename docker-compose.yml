@@ -20,7 +20,7 @@ services:
       - '--replSet'
       - 'myReplicaSet'
       - '--keyFile'
-      - '/key/mongodb.key'
+      - '/etc/mongodb.key'
       - '--bind_ip_all'
   mongo2:
     image: mongo:latest
@@ -41,7 +41,7 @@ services:
       - '--replSet'
       - 'myReplicaSet'
       - '--keyFile'
-      - '/key/mongodb.key'
+      - '/etc/mongodb.key'
       - '--bind_ip_all'
   mongo3:
     image: mongo:latest
@@ -62,7 +62,7 @@ services:
       - '--replSet'
       - 'myReplicaSet'
       - '--keyFile'
-      - '/key/mongodb.key'
+      - '/etc/mongodb.key'
       - '--bind_ip_all'
 networks:
   default:
