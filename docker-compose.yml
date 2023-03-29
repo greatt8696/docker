@@ -6,6 +6,7 @@ services:
     container_name: webserver
     build: 
       context: webserver
+      dockerfile: ./Dockerfile 
 
   redis:
     container_name: redis
