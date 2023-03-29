@@ -16,11 +16,10 @@ services:
       - ./data/db/replica/mongo1:/data/db
       - ./etc/mongodb.key:/etc/mongodb.key 
     command:
-      - '--replSet'
-      - 'myReplicaSet'
-      - '--keyFile'
-      - '/etc/mongodb.key'
-      - '--bind_ip_all'
+      - /bin/sh
+      - -c
+      - |
+      - 'mongod --replSet myReplicaSet --keyFile /etc/mongodb.key --bind_ip_all'
   mongo2:
     image: mongo:latest
     hostname: mongo2
@@ -36,11 +35,10 @@ services:
       - ./data/db/replica/mongo1:/data/db
       - ./etc/mongodb.key:/etc/mongodb.key 
     command:
-      - '--replSet'
-      - 'myReplicaSet'
-      - '--keyFile'
-      - '/etc/mongodb.key'
-      - '--bind_ip_all'
+      - /bin/sh
+      - -c
+      - |
+      - 'mongod --replSet myReplicaSet --keyFile /etc/mongodb.key --bind_ip_all'
   mongo3:
     image: mongo:latest
     hostname: mongo3
@@ -56,11 +54,10 @@ services:
       - ./data/db/replica/mongo1:/data/db
       - ./etc/mongodb.key:/etc/mongodb.key 
     command:
-      - '--replSet'
-      - 'myReplicaSet'
-      - '--keyFile'
-      - '/etc/mongodb.key'
-      - '--bind_ip_all'
+      - /bin/sh
+      - -c
+      - |
+      - 'mongod --replSet myReplicaSet --keyFile /etc/mongodb.key --bind_ip_all'
 networks:
   default:
     name: mongoCluster
