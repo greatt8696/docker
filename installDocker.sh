@@ -26,4 +26,4 @@ sudo chmod +x /usr/local/bin/docker-compose
 
 cd ~/
 
-sudo bash /home/local/docker/generateKeyfile.sh
+bash /home/local/docker/generateKeyfile.sh
