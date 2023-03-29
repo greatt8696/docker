@@ -1,6 +1,11 @@
 version: '3.8'
 
 services:
+  keyStore:
+    image: ubuntu:latest
+    hostname: keyStore
+    container_name: keyStore
+    command: "mkdir etc && openssl rand -base64 756 > /etc/mongodb.key && sudo chmod 400 /etc/mongodb.key"
 
   mongo1:
     image: mongo:latest
@@ -14,7 +19,7 @@ services:
       - 27017:27017
     volumes:
       - ./data/db/replica/mongo1:/data/db
-      - ./etc/mongodb.key:/etc/mongodb.key 
+      - keyStore:/etc/mongodb.key:/etc/mongodb.key 
       
     # entrypoint: "chmod 400 /etc/mongodb.key"
     # entrypoint: 
@@ -41,7 +46,7 @@ services:
       - 27018:27017
     volumes:
       - ./data/db/replica/mongo1:/data/db
-      - ./etc/mongodb.key:/etc/mongodb.key 
+      -  keyStore:/etc/mongodb.key:/etc/mongodb.key 
     # entrypoint: 
     #       - bash
     #       - -c
@@ -66,7 +71,7 @@ services:
       - 27019:27017
     volumes:
       - ./data/db/replica/mongo1:/data/db
-      - ./etc/mongodb.key:/etc/mongodb.key 
+      -  keyStore:/etc/mongodb.key:/etc/mongodb.key 
       
     # entrypoint: 
     #       - bash
