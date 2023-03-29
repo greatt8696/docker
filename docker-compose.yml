@@ -6,7 +6,7 @@ services:
     image: mongo:latest
     hostname: mongo1
     container_name: mongo1
-    restart: always
+    # restart: always
     environment:
       MONGO_INITDB_ROOT_USERNAME: root
       MONGO_INITDB_ROOT_PASSWORD: root!
@@ -27,7 +27,7 @@ services:
     image: mongo:latest
     hostname: mongo2
     container_name: mongo2
-    restart: always
+    # restart: always
     environment:
       MONGO_INITDB_ROOT_USERNAME: root
       MONGO_INITDB_ROOT_PASSWORD: root!
@@ -48,7 +48,7 @@ services:
     image: mongo:latest
     hostname: mongo3
     container_name: mongo3
-    restart: always
+    # restart: always
     environment:
       MONGO_INITDB_ROOT_USERNAME: root
       MONGO_INITDB_ROOT_PASSWORD: root!
