@@ -12,15 +12,14 @@ services:
     ports:
       # 로컬 27017 포트로 요청이 들어오면 컨테이너의 27017 포트로 리다이렉트되도록 설정
       - 27017:27017
-    entrypoint: ["mkdir", "key"]
     volumes:
       - ./data/db/replica/mongo1:/data/db
-      - ./key/mongodb.key:/key/mongodb.key 
+      - ./etc/mongodb.key:/etc/mongodb.key 
     command:
       - '--replSet'
       - 'myReplicaSet'
       - '--keyFile'
-      - '/key/mongodb.key'
+      - '/etc/mongodb.key'
       - '--bind_ip_all'
   mongo2:
     image: mongo:latest
@@ -33,15 +32,14 @@ services:
       - mongo1
     ports:
       - 27018:27017
-    entrypoint: ["mkdir", "key"]
     volumes:
       - ./data/db/replica/mongo1:/data/db
-      - ./key/mongodb.key:/key/mongodb.key 
+      - ./etc/mongodb.key:/etc/mongodb.key 
     command:
       - '--replSet'
       - 'myReplicaSet'
       - '--keyFile'
-      - '/key/mongodb.key'
+      - '/etc/mongodb.key'
       - '--bind_ip_all'
   mongo3:
     image: mongo:latest
@@ -54,15 +52,14 @@ services:
       - mongo2
     ports:
       - 27019:27017
-    entrypoint: ["mkdir", "key"]
     volumes:
       - ./data/db/replica/mongo1:/data/db
-      - ./key/mongodb.key:/key/mongodb.key 
+      - ./etc/mongodb.key:/etc/mongodb.key 
     command:
       - '--replSet'
       - 'myReplicaSet'
       - '--keyFile'
-      - '/key/mongodb.key'
+      - '/etc/mongodb.key'
       - '--bind_ip_all'
 networks:
   default:
