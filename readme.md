@@ -13,9 +13,10 @@
 
         WSL 이 설치 되지 않았다면
         1. 오른쪽하단에 윈도우 버튼 (시작메뉴) => PowerShell => 관리자권한으로 실행
-        2. dism.exe /online /enable-feature /featurename:Microsoft-Windows-Subsystem-Linux /all /norestart  입력 
-        3. dism.exe /online /enable-feature /featurename:VirtualMachinePlatform /all /norestart  입력
-        4. wsl --install -d Ubuntu-20.04
+        2. wsl --update
+        3. dism.exe /online /enable-feature /featurename:Microsoft-Windows-Subsystem-Linux /all /norestart  입력 
+        4. dism.exe /online /enable-feature /featurename:VirtualMachinePlatform /all /norestart  입력
+        5. wsl --install -d Ubuntu-20.04
 
     3. ubuntu 환경 설정
         1. 관리자이름 : local
