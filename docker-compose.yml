@@ -8,21 +8,21 @@ services:
 
   redis:
     container_name: redis
+    hostname: redis
     image: redis:latest
     ports:
       - 6379:6379
     restart: always
-    command: redis-server /usr/local/conf/redis.conf
+    command: redis~-server /usr/local/conf/redis.conf
     volumes:
       - ./redis/data/:/data
       - ./redis/conf/redis.conf:/usr/local/conf/redis.conf
 
   
-
-  mongo1:
+  logDb:
     image: mongo:latest
-    hostname: mongo1
-    container_name: mongo1
+    hostname: logDb
+    container_name: logDb
     restart: always
     environment:
       MONGO_INITDB_ROOT_USERNAME: local
@@ -30,7 +30,21 @@ services:
     ports:
       - 27017:27017
     volumes:
-      - ./mongodb/data/db/replica/mongo1:/data/db
+      - ./mongodb/data/db/replica/logDb:/data/db
+      - ./mongodb/etc/mongodb.key:/etc/mongodb.key 
+
+  gameDb1:
+    image: mongo:latest
+    hostname: gameDb1
+    container_name: gameDb1
+    restart: always
+    environment:
+      MONGO_INITDB_ROOT_USERNAME: local
+      MONGO_INITDB_ROOT_PASSWORD: haru
+    ports:
+      - 27017:27017
+    volumes:
+      - ./mongodb/data/db/replica/gameDb1:/data/db
       - ./mongodb/etc/mongodb.key:/etc/mongodb.key 
     command:
       - '--replSet'
@@ -38,20 +52,20 @@ services:
       - '--keyFile'
       - '/etc/mongodb.key'
       - '--bind_ip_all'
-  mongo2:
+  gameDb2:
     image: mongo:latest
-    hostname: mongo2
-    container_name: mongo2
+    hostname: gameDb2
+    container_name: gameDb2
     restart: always
     environment:
       MONGO_INITDB_ROOT_USERNAME: local
       MONGO_INITDB_ROOT_PASSWORD: haru
     depends_on:
-      - mongo1
+      - gameDb1
     ports:
       - 27018:27017
     volumes:
-      - ./mongodb/data/db/replica/mongo2:/data/db
+      - ./mongodb/data/db/replica/gameDb2:/data/db
       - ./mongodb/etc/mongodb.key:/etc/mongodb.key 
     command:
       - '--replSet'
@@ -59,20 +73,20 @@ services:
       - '--keyFile'
       - '/etc/mongodb.key'
       - '--bind_ip_all'
-  mongo3:
+  gameDb3:
     image: mongo:latest
-    hostname: mongo3
-    container_name: mongo3
+    hostname: gameDb3
+    container_name: gameDb3
     restart: always
     environment:
       MONGO_INITDB_ROOT_USERNAME: local
       MONGO_INITDB_ROOT_PASSWORD: haru
     depends_on:
-      - mongo2
+      - gameDb2
     ports:
       - 27019:27017
     volumes:
-      - ./mongodb/data/db/replica/mongo3:/data/db
+      - ./mongodb/data/db/replica/gameDb3:/data/db
       - ./mongodb/etc/mongodb.key:/etc/mongodb.key 
     command:
       - '--replSet'
