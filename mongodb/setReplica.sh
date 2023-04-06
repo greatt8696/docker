@@ -1,6 +1,6 @@
 #! /bin/bash
-sudo docker exec -i mongo1 mongosh -u root -p root! <<EOF 
-rs.initiate({ _id: "myReplicaSet", members: [ {_id: 0, host: "mongo1"}, {_id: 1, host: "mongo2"}, {_id: 2, host: "mongo3"}]});
+sudo docker exec -i gameDb1 mongosh -u root -p root! <<EOF 
+rs.initiate({ _id: "gameDbReplicaSet", members: [ {_id: 0, host: "gameDb1"}, {_id: 1, host: "gameDb2"}, {_id: 2, host: "gameDb3"}]});
 EOF
 
 
