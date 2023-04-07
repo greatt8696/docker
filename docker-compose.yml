@@ -96,4 +96,4 @@ services:
       
 networks:
   default:
-    name: mongoCluster
+    name: gameDbReplicaSet
