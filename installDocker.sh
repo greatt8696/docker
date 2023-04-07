@@ -30,4 +30,6 @@ cd /home/local/docker
 
 docker-compose up -d
 
+wait
+
 bash /home/local/docker/mongodb/setReplicaSet.sh
