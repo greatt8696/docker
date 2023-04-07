@@ -12,7 +12,7 @@ services:
     image: redis:latest
     ports:
       - 6379:6379
-    restart: always
+    # restart: always
     command: redis-server /usr/local/conf/redis.conf
     volumes:
       - ./redis/data/:/data
@@ -23,7 +23,7 @@ services:
     image: mongo:latest
     hostname: logDb
     container_name: logDb
-    restart: always
+    # restart: always
     environment:
       MONGO_INITDB_ROOT_USERNAME: local
       MONGO_INITDB_ROOT_PASSWORD: haru
@@ -36,7 +36,7 @@ services:
     image: mongo:latest
     hostname: gameDb1
     container_name: gameDb1
-    restart: always
+    # restart: always
     environment:
       MONGO_INITDB_ROOT_USERNAME: local
       MONGO_INITDB_ROOT_PASSWORD: haru
@@ -55,7 +55,7 @@ services:
     image: mongo:latest
     hostname: gameDb2
     container_name: gameDb2
-    restart: always
+    # restart: always
     environment:
       MONGO_INITDB_ROOT_USERNAME: local
       MONGO_INITDB_ROOT_PASSWORD: haru
@@ -76,7 +76,7 @@ services:
     image: mongo:latest
     hostname: gameDb3
     container_name: gameDb3
-    restart: always
+    # restart: always
     environment:
       MONGO_INITDB_ROOT_USERNAME: local
       MONGO_INITDB_ROOT_PASSWORD: haru
