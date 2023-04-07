@@ -44,7 +44,7 @@ services:
       - 27017:27017
     volumes:
       - ./mongodb/data/db/replica/gameDb1:/data/db
-      - ./mongodb/etc/mongodb.key:/etc/mongodb.key 
+      - /home/local/docker/mongodb/etc/mongodb.key:/etc/mongodb.key 
     command:
       - '--replSet'
       - 'gameDbReplicaSet'
@@ -65,7 +65,7 @@ services:
       - 27018:27017
     volumes:
       - ./mongodb/data/db/replica/gameDb2:/data/db
-      - ./mongodb/etc/mongodb.key:/etc/mongodb.key 
+      - /home/local/docker/mongodb/etc/mongodb.key:/etc/mongodb.key 
     command:
       - '--replSet'
       - 'gameDbReplicaSet'
@@ -86,7 +86,7 @@ services:
       - 27019:27017
     volumes:
       - ./mongodb/data/db/replica/gameDb3:/data/db
-      - ./mongodb/etc/mongodb.key:/etc/mongodb.key 
+      - /home/local/docker/mongodb/etc/mongodb.key:/etc/mongodb.key 
     command:
       - '--replSet'
       - 'gameDbReplicaSet'
