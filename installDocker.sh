@@ -35,3 +35,5 @@ wait
 sleep 6s
 
 bash /home/local/docker/mongodb/setReplica.sh
+
+echo "Docker installed and MongoDB replica set created."
