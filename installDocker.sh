@@ -32,8 +32,12 @@ docker-compose up -d
 
 wait
 
-sleep 6s
+sleep 3s
 
 bash /home/local/docker/mongodb/setReplica.sh
+
+wait
+
+echo "\n"
 
 echo "Docker installed and MongoDB replica set created."
