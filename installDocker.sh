@@ -32,7 +32,7 @@ docker-compose up -d
 
 wait
 
-sleep 3s
+sleep 4s
 
 bash /home/local/docker/mongodb/setReplica.sh
 
