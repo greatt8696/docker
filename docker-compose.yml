@@ -28,7 +28,7 @@ services:
       MONGO_INITDB_ROOT_USERNAME: local
       MONGO_INITDB_ROOT_PASSWORD: haru
     ports:
-      - 27016:27017
+      - 27016:27016
     volumes:
       - ./mongodb/data/db/replica/logdb:/data/db
 
@@ -60,7 +60,7 @@ services:
       MONGO_INITDB_ROOT_USERNAME: local
       MONGO_INITDB_ROOT_PASSWORD: haru
     ports:
-      - 27017:27017
+      - 27018:27018
     volumes:
       - ./mongodb/data/db/replica/gamedb2:/data/db
       - /home/local/docker/mongodb/etc/mongodb.key:/etc/mongodb.key 
@@ -79,7 +79,7 @@ services:
       MONGO_INITDB_ROOT_USERNAME: local
       MONGO_INITDB_ROOT_PASSWORD: haru
     ports:
-      - 27017:27017
+      - 27019:27019
     volumes:
       - ./mongodb/data/db/replica/gamedb3:/data/db
       - /home/local/docker/mongodb/etc/mongodb.key:/etc/mongodb.key 
