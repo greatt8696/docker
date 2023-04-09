@@ -99,7 +99,7 @@ services:
       - gamedb2
       - gamedb3
     command: >
-      mongo --host gamedb1:27017 --eval 
+      mongosh --host gamedb1:27017 --eval 
       '
       db = (new Mongo("localhost:27017")).getDB("test");
       config = {
