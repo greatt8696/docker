@@ -59,8 +59,6 @@ services:
     environment:
       MONGO_INITDB_ROOT_USERNAME: local
       MONGO_INITDB_ROOT_PASSWORD: haru
-    depends_on:
-      - gamedb1
     ports:
       - 27018:27018
     volumes:
@@ -80,8 +78,6 @@ services:
     environment:
       MONGO_INITDB_ROOT_USERNAME: local
       MONGO_INITDB_ROOT_PASSWORD: haru
-    depends_on:
-      - gamedb2
     ports:
       - 27019:27019
     volumes:
