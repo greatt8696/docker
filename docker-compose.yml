@@ -90,37 +90,6 @@ services:
       - '/etc/mongodb.key'
       - '--bind_ip_all'
       
-  mongoinit:
-    image: mongo:latest
-    # this container will exit after executing the command
-    restart: "no"
-    depends_on:
-      - gamedb1
-      - gamedb2
-      - gamedb3
-    command: >
-      mongosh --host gamedb1:27017 --eval 
-      '
-      db = (new Mongo("localhost:27017")).getDB("test");
-      config = {
-      "_id" : "gamedbreplicaset",
-      "members" : [
-        {
-          "_id" : 0,
-          "host" : "gamedb1:27017"
-        },
-        {
-          "_id" : 1,
-          "host" : "gamedb2:27017"
-        },
-        {
-          "_id" : 2,
-          "host" : "gamedb3:27017"
-        }
-      ]
-      };
-      rs.initiate(config);
-      '      
 networks:
   default:
     name: gamedbreplicaset
