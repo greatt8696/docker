@@ -32,10 +32,10 @@ services:
     volumes:
       - ./mongodb/data/db/replica/logDb:/data/db
 
-  gameDb1:
+  gamedb1:
     image: mongo:latest
-    hostname: gameDb1
-    container_name: gameDb1
+    hostname: gamedb1
+    container_name: gamedb1
     # restart: always
     environment:
       MONGO_INITDB_ROOT_USERNAME: local
@@ -43,57 +43,57 @@ services:
     ports:
       - 27017:27017
     volumes:
-      - ./mongodb/data/db/replica/gameDb1:/data/db
+      - ./mongodb/data/db/replica/gamedb1:/data/db
       - /home/local/docker/mongodb/etc/mongodb.key:/etc/mongodb.key 
     command:
       - '--replSet'
-      - 'gameDbReplicaSet'
+      - 'gamedbReplicaSet'
       - '--keyFile'
       - '/etc/mongodb.key'
       - '--bind_ip_all'
-  gameDb2:
+  gamedb2:
     image: mongo:latest
-    hostname: gameDb2
-    container_name: gameDb2
+    hostname: gamedb2
+    container_name: gamedb2
     # restart: always
     environment:
       MONGO_INITDB_ROOT_USERNAME: local
       MONGO_INITDB_ROOT_PASSWORD: haru
     depends_on:
-      - gameDb1
+      - gamedb1
     ports:
       - 27018:27018
     volumes:
-      - ./mongodb/data/db/replica/gameDb2:/data/db
+      - ./mongodb/data/db/replica/gamedb2:/data/db
       - /home/local/docker/mongodb/etc/mongodb.key:/etc/mongodb.key 
     command:
       - '--replSet'
-      - 'gameDbReplicaSet'
+      - 'gamedbReplicaSet'
       - '--keyFile'
       - '/etc/mongodb.key'
       - '--bind_ip_all'
-  gameDb3:
+  gamedb3:
     image: mongo:latest
-    hostname: gameDb3
-    container_name: gameDb3
+    hostname: gamedb3
+    container_name: gamedb3
     # restart: always
     environment:
       MONGO_INITDB_ROOT_USERNAME: local
       MONGO_INITDB_ROOT_PASSWORD: haru
     depends_on:
-      - gameDb2
+      - gamedb2
     ports:
       - 27019:27019
     volumes:
-      - ./mongodb/data/db/replica/gameDb3:/data/db
+      - ./mongodb/data/db/replica/gamedb3:/data/db
       - /home/local/docker/mongodb/etc/mongodb.key:/etc/mongodb.key 
     command:
       - '--replSet'
-      - 'gameDbReplicaSet'
+      - 'gamedbReplicaSet'
       - '--keyFile'
       - '/etc/mongodb.key'
       - '--bind_ip_all'
       
 networks:
   default:
-    name: gameDbReplicaSet
+    name: gamedbReplicaSet
