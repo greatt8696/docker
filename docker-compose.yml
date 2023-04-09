@@ -19,10 +19,10 @@ services:
       - ./redis/conf/redis.conf:/home/local/conf/redis.conf
 
   
-  logDb:
+  logdb:
     image: mongo:latest
-    hostname: logDb
-    container_name: logDb
+    hostname: logdb
+    container_name: logdb
     # restart: always
     environment:
       MONGO_INITDB_ROOT_USERNAME: local
@@ -30,7 +30,7 @@ services:
     ports:
       - 27016:27017
     volumes:
-      - ./mongodb/data/db/replica/logDb:/data/db
+      - ./mongodb/data/db/replica/logdb:/data/db
 
   gamedb1:
     image: mongo:latest
@@ -47,7 +47,7 @@ services:
       - /home/local/docker/mongodb/etc/mongodb.key:/etc/mongodb.key 
     command:
       - '--replSet'
-      - 'gamedbReplicaSet'
+      - 'gamedbreplicaset'
       - '--keyFile'
       - '/etc/mongodb.key'
       - '--bind_ip_all'
@@ -68,7 +68,7 @@ services:
       - /home/local/docker/mongodb/etc/mongodb.key:/etc/mongodb.key 
     command:
       - '--replSet'
-      - 'gamedbReplicaSet'
+      - 'gamedbreplicaset'
       - '--keyFile'
       - '/etc/mongodb.key'
       - '--bind_ip_all'
@@ -89,11 +89,11 @@ services:
       - /home/local/docker/mongodb/etc/mongodb.key:/etc/mongodb.key 
     command:
       - '--replSet'
-      - 'gamedbReplicaSet'
+      - 'gamedbreplicaset'
       - '--keyFile'
       - '/etc/mongodb.key'
       - '--bind_ip_all'
       
 networks:
   default:
-    name: gamedbReplicaSet
+    name: gamedbreplicaset
