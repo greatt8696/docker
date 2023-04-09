@@ -61,6 +61,8 @@ services:
       MONGO_INITDB_ROOT_PASSWORD: haru
     ports:
       - 27018:27018
+    depends_on:
+        - gamedb1
     volumes:
       - ./mongodb/data/db/replica/gamedb2:/data/db
       - /home/local/docker/mongodb/etc/mongodb.key:/etc/mongodb.key 
@@ -80,6 +82,8 @@ services:
       MONGO_INITDB_ROOT_PASSWORD: haru
     ports:
       - 27019:27019
+    depends_on:
+        - gamedb2
     volumes:
       - ./mongodb/data/db/replica/gamedb3:/data/db
       - /home/local/docker/mongodb/etc/mongodb.key:/etc/mongodb.key 
