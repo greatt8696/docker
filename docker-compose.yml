@@ -21,7 +21,6 @@ services:
   
   logdb:
     image: mongo:latest
-    hostname: logdb
     container_name: logdb
     # restart: always
     environment:
@@ -29,6 +28,9 @@ services:
       MONGO_INITDB_ROOT_PASSWORD: haru
     ports:
       - 27016:27016
+    command:
+      - '--port'
+      - '27016'
     volumes:
       - ./mongodb/data/db/replica/logdb:/data/db
 
