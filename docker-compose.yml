@@ -62,7 +62,7 @@ services:
     depends_on:
       - gameDb1
     ports:
-      - 27018:27017
+      - 27018:27018
     volumes:
       - ./mongodb/data/db/replica/gameDb2:/data/db
       - /home/local/docker/mongodb/etc/mongodb.key:/etc/mongodb.key 
@@ -83,7 +83,7 @@ services:
     depends_on:
       - gameDb2
     ports:
-      - 27019:27017
+      - 27019:27019
     volumes:
       - ./mongodb/data/db/replica/gameDb3:/data/db
       - /home/local/docker/mongodb/etc/mongodb.key:/etc/mongodb.key 
