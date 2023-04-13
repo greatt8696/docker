@@ -26,7 +26,7 @@ services:
       MONGO_INITDB_ROOT_USERNAME: local
       MONGO_INITDB_ROOT_PASSWORD: haru
     ports:
-      - 27016:27017
+      - 27016:27016
     command:
       - '--port'
       - '27016'
