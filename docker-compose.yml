@@ -27,7 +27,7 @@ services:
       MONGO_INITDB_ROOT_USERNAME: local
       MONGO_INITDB_ROOT_PASSWORD: haru
     ports:
-      - 27016:27016
+      - 27016:27017
     command:
       - '--port'
       - '27016'
@@ -35,7 +35,6 @@ services:
       - ./mongodb/data/db/replica/logdb:/data/db
 
   gamedb1:
-    hostname: gamedb1
     image: mongo:latest
     container_name: gamedb1
     # restart: always
@@ -55,7 +54,6 @@ services:
       - '--keyFile'
       - '/etc/mongodb.key'
   gamedb2:
-    hostname: gamedb2
     image: mongo:latest
     container_name: gamedb2
     # restart: always
@@ -75,7 +73,6 @@ services:
       - '--keyFile'
       - '/etc/mongodb.key'
   gamedb3:
-    hostname: gamedb3
 
     image: mongo:latest
     container_name: gamedb3
