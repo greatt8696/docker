@@ -72,7 +72,6 @@ services:
       - '--keyFile'
       - '/etc/mongodb.key'
   gamedb3:
-
     image: mongo:latest
     container_name: gamedb3
     # restart: always
