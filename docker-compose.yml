@@ -36,7 +36,7 @@ services:
 
   gamedb1:
     image: mongo:latest
-    hostname: gamedb1
+    hostname: localhost
     container_name: gamedb1
     # restart: always
     environment:
@@ -56,7 +56,7 @@ services:
       - '/etc/mongodb.key'
   gamedb2:
     image: mongo:latest
-    hostname: gamedb2
+    hostname: localhost
     container_name: gamedb2
     # restart: always
     environment:
@@ -76,7 +76,7 @@ services:
       - '/etc/mongodb.key'
   gamedb3:
     image: mongo:latest
-    hostname: gamedb3
+    hostname: localhost
     container_name: gamedb3
     # restart: always
     environment:
