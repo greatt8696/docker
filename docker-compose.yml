@@ -11,7 +11,7 @@ services:
     hostname: redis
     image: redis:latest
     ports:
-      - 26379:6379
+      - 26379:26379
     # restart: always
     command: redis-server /home/local/conf/redis.conf
     volumes:
