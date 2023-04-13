@@ -26,10 +26,10 @@ services:
       MONGO_INITDB_ROOT_USERNAME: local
       MONGO_INITDB_ROOT_PASSWORD: haru
     ports:
-      - 27016:27016
+      - 27016:27017
     command:
       - '--port'
-      - '27016'
+      - '27017'
     volumes:
       - ./mongodb/data/db/replica/logdb:/data/db
 
@@ -60,13 +60,13 @@ services:
       MONGO_INITDB_ROOT_USERNAME: local
       MONGO_INITDB_ROOT_PASSWORD: haru
     ports:
-      - 27018:27018
+      - 27018:27017
     volumes:
       - ./mongodb/data/db/replica/gamedb2:/data/db
       - ~/mongodb.key:/etc/mongodb.key 
     command:
       - '--port'
-      - '27018'
+      - '27017'
       - '--replSet'
       - 'gamedbreplicaset'
       - '--keyFile'
@@ -80,13 +80,13 @@ services:
       MONGO_INITDB_ROOT_USERNAME: local
       MONGO_INITDB_ROOT_PASSWORD: haru
     ports:
-      - 27019:27019
+      - 27019:27017
     volumes:
       - ./mongodb/data/db/replica/gamedb3:/data/db
       - ~/mongodb.key:/etc/mongodb.key 
     command:
       - '--port'
-      - '27019'
+      - '27017'
       - '--replSet'
       - 'gamedbreplicaset'
       - '--keyFile'
