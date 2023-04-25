@@ -3,8 +3,8 @@ version: '3.8'
 services:
 
   webserver:
-    build: 
-      dockerfile: ./Dockerfile 
+    build:
+      dockerfile: ./Dockerfile
 
   redis:
     container_name: redis
@@ -17,7 +17,6 @@ services:
       - ./redis/data/:/data
       - ./redis/conf/redis.conf:/home/local/conf/redis.conf
 
-  
   logdb:
     image: mongo:latest
     hostname: logdb
@@ -45,53 +44,6 @@ services:
       - 27017:27017
     volumes:
       - ./mongodb/data/db/replica/gamedb1:/data/db
-      - ~/mongodb.key:/etc/mongodb.key 
     command:
       - '--port'
       - '27017'
-      - '--replSet'
-      - 'gamedbreplicaset'
-      - '--keyFile'
-      - '/etc/mongodb.key'
-  gamedb2:
-    image: mongo:latest
-    container_name: gamedb2
-    # restart: always
-    environment:
-      MONGO_INITDB_ROOT_USERNAME: local
-      MONGO_INITDB_ROOT_PASSWORD: haru
-    ports:
-      - 27018:27017
-    volumes:
-      - ./mongodb/data/db/replica/gamedb2:/data/db
-      - ~/mongodb.key:/etc/mongodb.key 
-    command:
-      - '--port'
-      - '27017'
-      - '--replSet'
-      - 'gamedbreplicaset'
-      - '--keyFile'
-      - '/etc/mongodb.key'
-  gamedb3:
-    image: mongo:latest
-    container_name: gamedb3
-    # restart: always
-    environment:
-      MONGO_INITDB_ROOT_USERNAME: local
-      MONGO_INITDB_ROOT_PASSWORD: haru
-    ports:
-      - 27019:27017
-    volumes:
-      - ./mongodb/data/db/replica/gamedb3:/data/db
-      - ~/mongodb.key:/etc/mongodb.key 
-    command:
-      - '--port'
-      - '27017'
-      - '--replSet'
-      - 'gamedbreplicaset'
-      - '--keyFile'
-      - '/etc/mongodb.key'
-      
-networks:
-  default:
-    name: gamedbreplicaset
